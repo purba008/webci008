@@ -1,12 +1,16 @@
 <?php
 
-class Komponen008 extends CI_controller
+class Komponen008 extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
         $this->load->model('MKomponen008');
+        
+        if ($this->session->userdata('loginn') !=true){
+        redirect('login/index');
     }
+}
     public function index()
     {
         $data['isi'] = $this->MKomponen008->getAll();
